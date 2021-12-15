@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Корпус
+{% endblock %}
+
+{% block body %}
+
+<div class = 'container'>
+
+    <body class="bg-light">
+    <div class="container">
+
+    <h2> Ваши посты </h2>
+
+    {% for el in articles %}
+    <div class="alert alert-info">
+        <h2>{{ el.title }}</h2>
+        <h2>{{ el.intro }}</h2>
+        <p><b> Дата создания поста: {{ el.date.date() }}</b></p>
+        <a href="/posts/{{ el.id }}" class="btn btn-warning"> Детальнее </a>
+    </div>
+    {% endfor %}
+
+
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Результат поиска: {{ query }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="align-items-center p-3 px-md-4 mb-3 bg-light border-bottom shadow-sm" style="text-align:left;color:#282828;">
+        <h3>Результаты поиска по запросу <i>{{ query }}</i></h3>
+        {% for snt in results %}
+            <li class="list-group-item">
+				{{ snt[0]['lyric'] }}
+				<div style="color:#282828;">
+					<small>«<a href="/track/{{ snt[0]['track_id'] }}">{{ snt[0]['title'] }}</a>», {{ snt[0]['artist'] }}, {{ snt[0]['year'] }}</small>
+				</div>
+			</li>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
